@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import withRouter from "@/utils/router";
 import { Breadcrumb } from "antd";
 import menuList from "@/config/menuConfig";
 import "./index.less";

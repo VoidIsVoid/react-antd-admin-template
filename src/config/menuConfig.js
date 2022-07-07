@@ -6,25 +6,19 @@ const menuList = [
   {
     title: "首页",
     path: "/dashboard",
-    icon: "home",
-    roles:["admin","editor","guest"]
-  },
-  {
-    title: "作者博客",
-    path: "/doc",
-    icon: "file",
+    icon: "HomeOutlined",
     roles:["admin","editor","guest"]
   },
   {
     title: "引导页",
     path: "/guide",
-    icon: "key",
+    icon: "KeyOutlined",
     roles:["admin","editor"]
   },
   {
     title: "权限测试",
     path: "/permission",
-    icon: "lock",
+    icon: "LockOutlined",
     children: [
       {
         title: "权限说明",
@@ -51,7 +45,7 @@ const menuList = [
   {
     title: "组件",
     path: "/components",
-    icon: "appstore",
+    icon: "AppstoreOutlined",
     roles:["admin","editor"],
     children: [
       {
@@ -74,7 +68,7 @@ const menuList = [
   {
     title: "图表",
     path: "/charts",
-    icon: "area-chart",
+    icon: "AreaChartOutlined",
     roles:["admin","editor"],
     children: [
       {
@@ -97,7 +91,7 @@ const menuList = [
   {
     title: "路由嵌套",
     path: "/nested",
-    icon: "cluster",
+    icon: "ClusterOutlined",
     roles:["admin","editor"],
     children: [
       {
@@ -127,13 +121,13 @@ const menuList = [
   {
     title: "表格",
     path: "/table",
-    icon: "table",
+    icon: "TableOutlined",
     roles:["admin","editor"]
   },
   {
     title: "Excel",
     path: "/excel",
-    icon: "file-excel",
+    icon: "FileExcelOutlined",
     roles:["admin","editor"],
     children: [
       {
@@ -151,31 +145,25 @@ const menuList = [
   {
     title: "Zip",
     path: "/zip",
-    icon: "file-zip",
+    icon: "FileZipOutlined",
     roles:["admin","editor"]
   },
   {
     title: "剪贴板",
     path: "/clipboard",
-    icon: "copy",
+    icon: "CopyOutlined",
     roles:["admin","editor"]
   },
   {
     title: "用户管理",
     path: "/user",
-    icon: "usergroup-add",
+    icon: "UsergroupAddOutlined",
     roles:["admin"]
-  },
-  {
-    title: "关于作者",
-    path: "/about",
-    icon: "user",
-    roles:["admin","editor","guest"]
   },
   {
     title: "Bug收集",
     path: "/bug",
-    icon: "bug",
+    icon: "BugOutlined",
     roles:["admin"]
   },
 ];

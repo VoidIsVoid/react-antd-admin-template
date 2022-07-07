@@ -4,6 +4,9 @@ import remoteSearchAPI from "./remoteSearch";
 import excelAPI from "./excel";
 import tableAPI from "./table";
 import monitor from "./monitor";
+Mock.setup({
+    timeout: '200-600'
+})
 
 // 登录与用户相关
 Mock.mock(/\/login/, "post", loginAPI.login);

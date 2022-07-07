@@ -1,30 +1,32 @@
 import React from "react";
-import { Row, Col, Icon } from "antd";
+import { Row, Col } from "antd";
 import CountUp from "react-countup";
 import "./index.less";
+import Icon from '@/components/DynamicIcon'
+
 
 const chartList = [
   {
     type: "New Visits",
-    icon: "user",
+    icon: "UserOutlined",
     num: 102400,
     color: "#40c9c6",
   },
   {
     type: "Messages",
-    icon: "message",
+    icon: "MessageOutlined",
     num: 81212,
     color: "#36a3f7",
   },
   {
     type: "Purchases",
-    icon: "pay-circle",
+    icon: "PayCircleOutlined",
     num: 9280,
     color: "#f4516c",
   },
   {
     type: "Shoppings",
-    icon: "shopping-cart",
+    icon: "ShoppingCart",
     num: 13600,
     color: "#f6ab40",
   },

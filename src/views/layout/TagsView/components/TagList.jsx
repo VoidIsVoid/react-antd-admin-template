@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import withRouter from "@/utils/router";
 import { Scrollbars } from "react-custom-scrollbars";
 import { Tag } from "antd";
 import { deleteTag, emptyTaglist, closeOtherTags } from "@/store/actions";
@@ -13,13 +13,14 @@ class TagList extends Component {
     menuVisible: false,
   };
   handleClose = (tag) => {
-    const { history, deleteTag, taglist } = this.props;
+    const { location, navigate, deleteTag, taglist } = this.props;
     const path = tag.path;
-    const currentPath = history.location.pathname;
+    const currentPath = location.pathname;
+    console.log(currentPath)
     const length = taglist.length;
     // 如果关闭的是当前页，跳转到最后一个tag
     if (path === currentPath) {
-      history.push(taglist[length - 1].path);
+      navigate(taglist[length - 1].path);
     }
     // 如果关闭的是最后的tag ,且当前显示的也是最后的tag对应的页面，才做路由跳转
     if (
@@ -28,9 +29,9 @@ class TagList extends Component {
     ) {
       // 因为cutTaglist在最后执行，所以跳转到上一个tags的对应的路由，应该-2
       if (length - 2 > 0) {
-        history.push(taglist[length - 2].path);
+        navigate(taglist[length - 2].path);
       } else if (length === 2) {
-        history.push(taglist[0].path);
+        navigate(taglist[0].path);
       }
     }
 
@@ -38,7 +39,7 @@ class TagList extends Component {
     deleteTag(tag);
   };
   handleClick = (path) => {
-    this.props.history.push(path);
+    this.props.navigate(path);
   };
   openContextMenu = (tag, event) => {
     event.preventDefault();
@@ -89,20 +90,20 @@ class TagList extends Component {
   }
   handleCloseAllTags = () => {
     this.props.emptyTaglist();
-    this.props.history.push("/dashboard");
+    this.props.navigate("/dashboard");
     this.closeContextMenu();
   };
   handleCloseOtherTags = () => {
     const currentTag = this.state.currentTag;
     const { path } = currentTag;
     this.props.closeOtherTags(currentTag)
-    this.props.history.push(path);
+    this.props.navigate(path);
     this.closeContextMenu();
   };
   render() {
     const { left, top, menuVisible } = this.state;
-    const { taglist, history } = this.props;
-    const currentPath = history.location.pathname;
+    const { taglist, location } = this.props;
+    const currentPath = location.pathname;
     return (
       <>
         <Scrollbars
